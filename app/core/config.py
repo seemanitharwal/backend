@@ -32,7 +32,9 @@ class Settings(BaseSettings):
     smtp_password: Optional[str] = os.getenv("SMTP_PASSWORD")
     from_email: Optional[str] = os.getenv("FROM_EMAIL")
     smtp_use_tls: bool = os.getenv("SMTP_USE_TLS", "true").lower() == "true"
-    frontend_url: str = "http://localhost:5173"
+    # frontend_url: str = "http://localhost:5173"
+    frontend_url: str = os.getenv("FRONTEND_URL", "http://localhost:5173")
+
 
     class Config:
         env_file = ".env"
